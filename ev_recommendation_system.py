@@ -16,11 +16,11 @@ def create_test_drive_data():
         'Price': [47895, 66200, 71875, 55650, 52000],  # in USD
         'Range': [275, 254, 307, 342, 346],  # in miles
         'Battery Capacity': [64, 79, 68.7, 63, 75],  # in kWh
-        'Charging Time': [0.5, 0.5, 0.6, 0.9, 0.5],  # in hours
-        'Performance Score': [9.8, 9.6, 9.5, 6.0, 8.5],  # out of 10
-        'Warranty': [4, 4, 4, 4, 4],  # in years
+        'Charging Time': [0.5, 0.5, 1.2, 0.9, 0.5],  # in hours
+        'Performance Score': [9.8, 9.6, 8.5, 6.0, 8.5],  # out of 10
+        'Warranty': [4, 4, 2, 4, 4],  # in years
         'Federal Discount': [0, 7500, 7500, 7500, 8500],  # in USD
-        'Comfort Level': [8.6, 8, 8.6, 5, 6.6],  # out of 10
+        'Comfort Level': [8.6, 8, 6.6, 5, 6.6],  # out of 10
     }
     return pd.DataFrame(data)
 # Load data
@@ -43,13 +43,13 @@ data[numerical_cols] = scaler.fit_transform(data[numerical_cols])
 # -------------------------------
 # Define weights for each column
 column_weights = {
-    'Final Price': 0.3,
-    'Range': 0.15,
-    'Battery Capacity': 0.15,
-    'Charging Time': 0.05,
-    'Performance Score': 0.25,
-    'Warranty': 0.05,
-    'Comfort Level': 0.05,
+    'Final Price': 0.01,
+    'Range': 0.55,
+    'Battery Capacity': 0.35,
+    'Charging Time': 0.35,
+    'Performance Score': 0.60,
+    'Warranty': 0.10,
+    'Comfort Level': 0.55,
 }
 
 # Calculate weighted scores for each column
